@@ -1,0 +1,35 @@
+
+CREATE TABLE users(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NULL,
+    role VARCHAR(20) DEFAULT 'user',
+    gender VARCHAR(10) DEFAULT 'female',
+    salary INT UNSIGNED,
+    biography TEXT,
+    location VARCHAR(60) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE jobs(
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(200) NOT NULL,
+    title VARCHAR(200) NOT NULL,
+	description TEXT NOT NULL,
+	location VARCHAR(60),
+	skills TEXT,
+	experience INT UNSIGNED,
+	company_name VARCHAR(255) NOT NULL,
+	salary INT UNSIGNED,
+	user_id INT UNSIGNED NOT NULL,
+	approved INT(1) DEFAULT 0,
+	availability INT(1) DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)
+
+INSERT INTO users (first_name,last_name,email,password) VALUES("sarah","tarek",'sarah@gmail.com','1234567')
